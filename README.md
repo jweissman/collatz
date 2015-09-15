@@ -2,22 +2,24 @@
 
 ## Description
 
-Compute the hailstone sequence.
+Compute the [hailstone sequence](https://en.wikipedia.org/wiki/Collatz_conjecture).
 
 ## Features
  
   - Compute hailstone sequences
-  - Narrate the sequence (indicate primality or factors)
+  - Narrate a sequence (indicating primality or factors of each term)
+  - Compute Collatz graphs
+  - Render graphs as images with graphviz
 
 ## Examples
 
    ```ruby
-   be pry -r collatz  
-   [1] pry(main)> include Collatz::Sequence
+   $ bundle exec pry -r collatz  
+   [1] pry(main)> include Collatz
    => Object
-   [2] pry(main)> collatz 1024
+   [2] pry(main)> hailstone 1024
    => [1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1]
-   [3] pry(main)> collatz 513
+   [3] pry(main)> hailstone 513
    => [513, 1540, 770, 385, 1156, 578, 289, 868, 434, 217, 652, 326, 163, 490, 245, 736, 368, 184, 92, 46, 23, 70, 35, 106, 53, 160, 80, 40, 20, 10, 5, 16, 8, 4, 2, 1]
   ```
 
@@ -29,6 +31,7 @@ Compute the hailstone sequence.
    2 *
    1 []
    => [4, 2, 1]
+
    [5] pry(main)> narrate 5
    5 *
    16 [[2, 4]]
@@ -37,6 +40,11 @@ Compute the hailstone sequence.
    2 *
    1 []
    => [5, 16, 8, 4, 2, 1]
+   ```
+
+   A slightly longer example. Note output will be colorized: primes in white, other odd numbers in yellow, and even numbers in blue. 
+
+   ```ruby
    [6] pry(main)> narrate 50
    50 [[2, 1], [5, 2]]
    25 [[5, 2]]
@@ -65,6 +73,47 @@ Compute the hailstone sequence.
    1 []
    => [50, 25, 76, 38, 19, 58, 29, 88, 44, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1]
    ```
+
+   Inversely let's compute the Collatz graph out to degree ten:
+
+   ```ruby
+   [6] pry(main)> collatz_graph 10
+   => {1=>[2],
+    2=>[4],
+    4=>[1, 8],
+    8=>[16],
+    16=>[5, 32],
+    5=>[10],
+    32=>[64],
+    10=>[3, 20],
+    64=>[21, 128],
+    3=>[6],
+    20=>[40],
+    21=>[42],
+    128=>[256],
+    6=>[12],
+   ```
+
+   Render this graph as a png (or svg, etc).
+   
+   ```ruby
+   [8] pry(main)> visualize 10, 'png'
+   => #<Graph:0x007f9ddbaae580
+    @edge_attribs=[],
+    @edges=
+     {1=>{2=>#<struct Graph::Edge graph=#<Graph:0x007f9ddbaae580 ...>, attributes=[]>},
+      2=>{4=>#<struct Graph::Edge graph=#<Graph:0x007f9ddbaae580 ...>, attributes=[]>},
+      4=>{1=>#<struct Graph::Edge graph=#<Graph:0x007f9ddbaae580 ...>, attributes=[]>, 8=>#<struct Graph::Edge graph=#<Graph:0x007f9ddbaae580 ...>, attributes=[]>},
+      8=>{16=>#<struct Graph::Edge graph=#<Graph:0x007f9ddbaae580 ...>, attributes=[]>},
+      16=>{5=>#<struct Graph::Edge graph=#<Graph:0x007f9ddbaae580 ...>, attributes=[]>, 32=>#<struct Graph::Edge graph=#<Graph:0x007f9ddbaae580 ...>, attributes=[]>},
+     ...
+   ```
+
+   This creates a dotfile `collatz-10.dot` and an image `collatz-10.png` which looks like this...
+
+   (collatz-10.png)
+
+   A 30-degree Collatz graph renders out at 113737 × 3035 pixels (15M).
 
 ## Copyright
 

@@ -5,5 +5,4 @@
 /vendor/cache/*.gem
 **/.*.swp
 *.dot
-*.png
 tags
