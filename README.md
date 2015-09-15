@@ -19,6 +19,11 @@ Compute the hailstone sequence.
    => [1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1]
    [3] pry(main)> collatz 513
    => [513, 1540, 770, 385, 1156, 578, 289, 868, 434, 217, 652, 326, 163, 490, 245, 736, 368, 184, 92, 46, 23, 70, 35, 106, 53, 160, 80, 40, 20, 10, 5, 16, 8, 4, 2, 1]
+  ```
+
+   The narration of a sequence indicates primes with an asterisk (`*`).
+
+   ```ruby
    [4] pry(main)> narrate 4
    4 [[2, 2]]
    2 *
