@@ -17,10 +17,12 @@ module Collatz
         prime = element.prime?
 
         label = prime ? text.white : (element.odd? ? text.yellow : text.blue)
-        print label
+        print label + " "
 
         description = prime ? '*'.white : element.prime_division.to_s.green
         print description
+        
+        print "\n"
       end
 
       print '*'
@@ -34,7 +36,9 @@ module Collatz
           end
         end
 
+        puts 'writing graph data and generating image, please stand by'
         save "collatz-#{n}", ext
+        puts 'complete!'
       end
 
       true

@@ -11,15 +11,16 @@ module Collatz
       end
     end
 
-    def compute(depth=1,trace=false)
+    def compute(depth=1,trace=true)
       tree[1]
 
       depth.times do |i|
         tree.values.each do |vs| 
           vs.each do |v| 
             tree[v] 
+            print '.' if trace
           end
-          print '.' if trace
+          print ',' if trace
         end
         print '*' if trace
       end

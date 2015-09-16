@@ -7,14 +7,14 @@ module Collatz
       (3 * n) + 1
     end
 
-    def compute(starting_value)
+    def compute(starting_value, acc=[])
       unless starting_value.is_a?(Integer) && starting_value > 0
         raise "only defined for positive integers" 
       end
       
-      return [1] if starting_value == 1
-      next_value = compute_next_step starting_value
-      [starting_value] + compute(next_value)
+      return acc+[1] if starting_value == 1
+      next_value = compute_next_step(starting_value)
+      compute(next_value, acc+[starting_value])
     end
 
     # tail call optimize 
