@@ -44,7 +44,7 @@ Compute the [hailstone sequence](https://en.wikipedia.org/wiki/Collatz_conjectur
    => [5, 16, 8, 4, 2, 1]
    ```
 
-   A slightly longer example. Note output will be colorized: primes in white, other odd numbers in yellow, and even numbers in blue. 
+   A slightly longer example. Note output will be colorized: primes in green, other odd numbers in blue, and even numbers in white. 
 
    ```ruby
    [6] pry(main)> narrate 50
@@ -94,9 +94,10 @@ Compute the [hailstone sequence](https://en.wikipedia.org/wiki/Collatz_conjectur
     21=>[42],
     128=>[256],
     6=>[12],
+    ...
    ```
 
-   Render this graph as a png (or svg, etc).
+   And render the graph as a png (also works with svg):
    
    ```ruby
    [8] pry(main)> visualize 15, 'png'

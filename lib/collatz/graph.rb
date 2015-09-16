@@ -25,6 +25,8 @@ module Collatz
         print '*' if trace
       end
 
+      puts "--- done computing degree #{depth} collatz graph" if trace
+
       tree
     end
   end
