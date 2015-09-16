@@ -1,5 +1,7 @@
 # collatz
 
+   ![5-degree Collatz Graph](https://raw.github.com/jweissman/collatz/master/img/collatz-5.png)
+
 ## Description
 
 Compute the [hailstone sequence](https://en.wikipedia.org/wiki/Collatz_conjecture).
@@ -113,7 +115,7 @@ Compute the [hailstone sequence](https://en.wikipedia.org/wiki/Collatz_conjectur
 
    ![15-degree Collatz Graph](https://raw.github.com/jweissman/collatz/master/img/collatz-15.png)
 
-   A 30-degree Collatz graph renders out at 113737 × 3035 pixels (15M).
+   [A 30-degree Collatz graph renders out at 113737 × 3035 pixels](https://raw.github.com/jweissman/collatz/raw/master/img/collatz-30.png) (15M).
 
 ## Copyright
 
