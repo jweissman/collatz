@@ -97,7 +97,7 @@ Compute the [hailstone sequence](https://en.wikipedia.org/wiki/Collatz_conjectur
    Render this graph as a png (or svg, etc).
    
    ```ruby
-   [8] pry(main)> visualize 10, 'png'
+   [8] pry(main)> visualize 15, 'png'
    => #<Graph:0x007f9ddbaae580
     @edge_attribs=[],
     @edges=
@@ -109,9 +109,9 @@ Compute the [hailstone sequence](https://en.wikipedia.org/wiki/Collatz_conjectur
      ...
    ```
 
-   This creates a dotfile `collatz-10.dot` and an image `collatz-10.png` which looks like this...
+   This creates a dotfile `collatz-15.dot` and an image `collatz-15.png` which looks like this...
 
-   (collatz-10.png)
+   ![15-degree Collatz Graph](https://raw.github.com/jweissman/collatz/master/img/collatz-15.png)
 
    A 30-degree Collatz graph renders out at 113737 × 3035 pixels (15M).
 
